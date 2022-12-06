@@ -44,6 +44,12 @@ router.get("/new", (req, res) => {
 })
 
 // Delete Route
+router.delete("/:id", (req, res) => {
+    const id = req.params.id
+    Movie.findByIdAndRemove(id, (error, movie) => {
+        res.redirect("/movie")
+    })
+})
 
 // Update Route
 router.put("/:id", (req, res) => {
