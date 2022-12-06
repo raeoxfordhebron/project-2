@@ -46,6 +46,13 @@ router.get("/new", (req, res) => {
 // Delete Route
 
 // Update Route
+router.put("/:id", (req, res) => {
+    const id = req.params.id
+    req.body.isLiked = req.body.isLiked === "on" ? true : false
+    Movie.findByIdAndUpdate(id, req.body, {new: true}, (error, movie) => {
+        res.redirect("/movie")
+    })
+})
 
 // Create Route
 router.post("/", (req, res) => {
@@ -56,6 +63,12 @@ router.post("/", (req, res) => {
 })
 
 // Edit Route
+router.get("/:id/edit" , (req, res) => {
+    const id = req.params.id
+    Movie.findById(id, (error, movie) => {
+        res.render("movie/edit.ejs", {movie})
+    })
+})
 
 // Show Route
 router.get("/:id", (req, res) => {
