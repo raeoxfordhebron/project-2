@@ -48,6 +48,12 @@ router.get("/new", (req, res) => {
 // Update Route
 
 // Create Route
+router.post("/", (req, res) => {
+    req.body.isLiked = req.body.isLiked === "on" ? true : false
+    Movie.create(req.body, (error, fruit) => {
+        res.redirect("/movie")
+    })
+})
 
 // Edit Route
 
