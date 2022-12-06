@@ -7,6 +7,7 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const PORT = process.env.PORT || 4000
+const MovieRouter = require("./controllers/movie")
 
 /////////////////////////////////////////////////
 // Create our Express Application Object
@@ -28,6 +29,8 @@ app.use("/static", express.static("public"))
 app.get("/", (req, res) => {
     res.send("Server is working")
 })
+
+app.use("/movie", MovieRouter)
 
 
 //////////////////////////////////////////////
