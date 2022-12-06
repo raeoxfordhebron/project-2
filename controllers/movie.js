@@ -49,6 +49,12 @@ router.get("/", async (req, res) => {
 // Edit Route
 
 // Show Route
+router.get("/:id", (req, res) => {
+    const id = req.params.id
+    Movie.findById(id, (error, movie) => {
+        res.render("movie/show.ejs", {movie})
+    })
+})
 
 
 
