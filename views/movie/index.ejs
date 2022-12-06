@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head.ejs") %>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <h1> List of Movies </h1>
+    <% movies.forEach((movie, index) => { %>
+        <a href="/movie/<%= movie.id %>"><h2><%= movie.title %></h2></a>
+    <% }) %>
+    
+</body>
+</html>
