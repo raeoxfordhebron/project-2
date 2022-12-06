@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <main>
+        <div>
+            <form action ="/movie" method="post">
+                <legend>Add a New Movie</legend>
+                <label>
+                    Title: <input type="text" name="title">
+                </label>
+                <label>
+                    Notes: <input type="text" name="notes">
+                </label>
+                <label>
+                    Genre: <input type="text" name="genre">
+                </label>
+                <label>
+                    Liked: <input type="checkbox" name="isLiked">
+                </label>
+                <input type="submit" value="Add New Movie">
+            </form>
+        </div>
+    </main>
+</body>
+</html>

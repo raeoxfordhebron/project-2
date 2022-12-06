@@ -39,6 +39,9 @@ router.get("/", async (req, res) => {
 })
 
 // New Route 
+router.get("/new", (req, res) => {
+    res.render("movie/new.ejs")
+})
 
 // Delete Route
 
