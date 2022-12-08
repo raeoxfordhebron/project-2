@@ -38,7 +38,8 @@ router.get("/home", (req, res) => {
 })
 
 // Genres Page
-router.get("/genres", (req, res) => {
+router.get("/genres", async (req, res) => {
+    const movies = await Movie.find({}).catch((error) => {errorHandler(error, res)})
     res.render("movie/genre.ejs", {movies})
 })
 
