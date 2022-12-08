@@ -32,8 +32,14 @@ router.get("/seed", (req, res) => {
     })
 })
 
+// Home Page
+router.get("/", (req, res) => {
+    res.render("movie/home.ejs")
+})
+
+
 // Index Route 
-router.get("/", async (req, res) => {
+router.get("/manage", async (req, res) => {
     const movies = await Movie.find({}).catch((error) => errorHandler(error, res))
     res.render("movie/index.ejs", {movies})
 })

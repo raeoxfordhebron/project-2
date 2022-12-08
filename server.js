@@ -21,7 +21,7 @@ const app = express()
 app.use(morgan("tiny"))
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride("_method"))
-app.use("/static", express.static("public"))
+app.use(express.static("public"))
 
 /////////////////////////////////////////////////////
 // Routes and Routers
