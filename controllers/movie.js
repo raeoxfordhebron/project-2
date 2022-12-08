@@ -33,13 +33,12 @@ router.get("/seed", (req, res) => {
 })
 
 // Home Page
-router.get("/", (req, res) => {
+router.get("/home", (req, res) => {
     res.render("movie/home.ejs")
 })
 
-
 // Index Route 
-router.get("/manage", async (req, res) => {
+router.get("/", async (req, res) => {
     const movies = await Movie.find({}).catch((error) => errorHandler(error, res))
     res.render("movie/index.ejs", {movies})
 })
@@ -53,7 +52,7 @@ router.get("/new", (req, res) => {
 router.delete("/:id", (req, res) => {
     const id = req.params.id
     Movie.findByIdAndRemove(id, (error, movie) => {
-        res.redirect("/movie")
+        res.redirect("/movie/manage")
     })
 })
 
