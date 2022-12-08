@@ -8,6 +8,11 @@
             <h1>Buster Block</h1>
         </div>
         <div>
+            <span>
+                <a href="/movie/new"><button>Add</button></a>
+            </span>
+        </div>
+        <div>
             <% movies.forEach((movie, index) => { %>
                 <a href="/movie/<%= movie.id %>"><h2><%= movie.title %></h2></a>
                 <div>

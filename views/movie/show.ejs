@@ -3,6 +3,24 @@
     <%- include("../partials/head.ejs") %>
 <body>
     <%- include("../partials/header.ejs") %>
-    
+    <main>
+        <a href="/movie"><button>Manage All</button></a>
+        <h1><%= movie.title %></h1>
+        <div>
+            <label>Notes</label>
+            <span><%= movie.notes %></span>
+        </div>
+        <div>
+            <span><%= movie.genre %></span>
+        </div>
+        <div>
+            <a href="/movie/<%= movie._id %>/edit"><button>Edit</button></a>
+        </div>
+        <div>
+            <form action="/movie/<%= movie._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+    </main>
 </body>
 </html>
