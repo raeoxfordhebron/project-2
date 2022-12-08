@@ -3,6 +3,13 @@
 <%- include("../partials/head.ejs") %>
 <body>
     <%- include("../partials/header.ejs") %>
-    
+    <h1>Buster Block</h1>
+    <main>
+        <div>
+            <% movies.forEach((movie, index) => { %>
+                <span><%= movie.genre %></span>
+            <% }) %>
+        </div>
+    </main>
 </body>
 </html>

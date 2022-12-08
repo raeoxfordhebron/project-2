@@ -39,7 +39,7 @@ router.get("/home", (req, res) => {
 
 // Genres Page
 router.get("/genres", (req, res) => {
-    res.render("movie/genre.ejs")
+    res.render("movie/genre.ejs", {movies})
 })
 
 // Index Route 
