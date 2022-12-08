@@ -13,6 +13,10 @@
         <div>
             <span><%= movie.genre %></span>
         </div>
+        <span>
+            <label for="isLiked">Liked</label>
+                    <input type="checkbox" name="isLiked" <%= movie.isLiked ? "checked" : "" %>>
+        </span>
         <div>
             <a href="/movie/<%= movie._id %>/edit"><button>Edit</button></a>
         </div>

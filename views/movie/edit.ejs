@@ -3,6 +3,24 @@
 <%- include("../partials/head.ejs") %>
 <body>
     <%- include("../partials/header.ejs") %>
-    <h1></h1>
+    <h1>Buster Block</h1>
+    <form action="/movie/<%= movie._id %>?_method=PUT" method="post">
+        <fieldset>
+            <legend>Edit a Movie</legend>
+            <label>
+                Title:<input type="text" name="title" value="<%= movie.title %>">
+            </label>
+            <label>
+                Notes:<input type="text" name="notes" value="<%= movie.notes %>">
+            </label>
+            <label>
+                Genre:<input type="text" name="genre" value="<%= movie.genre %>">
+            </label>
+            <label>
+                Liked:<input type="checkbox" name="isLiked" <%= movie.isLiked ? "checked" : "" %>>
+            </label>
+        </fieldset>
+        <input type="submit" value="Update <%= movie.title %>">
+    </form>
 </body>
 </html>
