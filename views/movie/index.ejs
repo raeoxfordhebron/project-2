@@ -4,14 +4,16 @@
 <body>
     <%- include("../partials/header.ejs") %>
     <main>
+        <div class="container-title">
         <div id="name">
             <h1 class="name-emphasis">B</h1><h1>uster</h1> <h1 class="name-emphasis">B</h1><h1>lock</h1>
         </div>
-        <div>
+        <div class="button">
             <span>
-                <a href="/movie/new"><button>Add</button></a>
+                <a href="/movie/new"><button>Add a Movie</button></a>
             </span>
         </div>
+    </div>
         <div class="container-movie">
             <% movies.forEach((movie, index) => { %>
                 <a href="/movie/<%= movie.id %>"><h2><%= movie.title %></h2></a>
