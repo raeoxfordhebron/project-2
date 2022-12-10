@@ -3,7 +3,10 @@
 <%- include("../partials/head.ejs") %>
 <body>
     <%- include("../partials/header.ejs") %>
-    <h1>Buster Block</h1>
+    <div class="container-title">
+        <div id="name">
+            <h1 class="name-emphasis">B</h1><h1>uster</h1> <h1 class="name-emphasis">B</h1><h1>lock</h1>
+        </div>
     <form class="edit-form" action="/movie/<%= movie._id %>?_method=PUT" method="post">
         <fieldset>
             <legend>Edit a Movie</legend>

@@ -33,8 +33,14 @@ router.get("/seed",  async (req, res) => {
 
 
 // Home Page
-router.get("/home", (req, res) => {
-    res.render("movie/home.ejs")
+router.get("/home", async (req, res) => {
+    const movies = await Movie.find({}).catch((error) => errorHandler(error, res))
+    res.render("movie/home.ejs", {movies})
+})
+
+// About Page
+router.get("/about", (req, res) => {
+    res.render("movie/about.ejs")
 })
 
 

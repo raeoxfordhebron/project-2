@@ -109,10 +109,21 @@ body {
 /* Edit Page */
 
 .edit-form {
-    width: 50%;
-    margin: 0 auto;
+    width: 60%;
+    margin: 7rem auto;
 }
 
 #edit-update {
     margin-top: 1rem;
+}
+
+fieldset legend {
+    font-size: 1.75rem;
+}
+
+
+/* Home Page */
+
+.container-list {
+    text-align: center;
 }

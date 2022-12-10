@@ -4,8 +4,17 @@
 <body>
     <%- include("../partials/header.ejs") %>
     <main>
-        <div class="title">
-            <h1>Buster Block</h1>
+        <div class="container-title">
+            <div id="name">
+                <h1 class="name-emphasis">B</h1><h1>uster</h1> <h1 class="name-emphasis">B</h1><h1>lock</h1>
+            </div>
+            </div>
+        <div class="container-list">
+            <h2>Movies List</h2>
+            
+            <% for(let i = 0; i<movies.length; i++){ %>
+                <p><%= movies[i].title %></p>
+            <% } %>
         </div>
     </main>
 </body>
