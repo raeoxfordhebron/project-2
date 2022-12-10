@@ -2,6 +2,8 @@
     box-sizing: border-box;
 }
 
+/* Index Page */
+
 body {
     margin: 0;
     font-family: 'Raleway', sans-serif;
@@ -58,6 +60,7 @@ body {
     padding: 1rem 2rem;
     background-color:rgb(8, 98, 98);
     color: white;
+    font-size: 1rem;
 }
 
 
@@ -65,6 +68,7 @@ body {
     display: flex;
     justify-content: center;
 }
+
 
 .container-notes{
     border: 1.5px solid black;
@@ -74,8 +78,37 @@ body {
     margin: 0 auto;
 }
 
+.container-movie{
+    margin-left: 5rem;
+}
+
+.container-movie h2 {
+    margin-left: 10rem;
+    color: black;
+}
+
+#index-genre {
+    margin-left: 10rem;
+}
+
+.liked {
+    margin-top: 1rem;
+    margin-left: 18rem;
+}
+
 @media only screen and (max-width: 385px) {
     .header{
         display: block;
     }
+}
+
+/* Edit Page */
+
+.edit-form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#edit-update {
+    margin-top: 1rem;
 }

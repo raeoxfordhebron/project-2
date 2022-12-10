@@ -4,7 +4,7 @@
 <body>
     <%- include("../partials/header.ejs") %>
     <h1>Buster Block</h1>
-    <form action="/movie/<%= movie._id %>?_method=PUT" method="post">
+    <form class="edit-form" action="/movie/<%= movie._id %>?_method=PUT" method="post">
         <fieldset>
             <legend>Edit a Movie</legend>
             <label>
@@ -20,7 +20,7 @@
                 Liked:<input type="checkbox" name="isLiked" <%= movie.isLiked ? "checked" : "" %>>
             </label>
         </fieldset>
-        <input type="submit" value="Update <%= movie.title %>">
+        <input id="edit-update" type="submit" value="Update <%= movie.title %>">
     </form>
 </body>
 </html>
