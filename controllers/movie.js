@@ -44,7 +44,7 @@ router.get("/linkmovies/:genreid/:movieid", async (req, res) => {
     const movie = await Movie.findById(req.params.movieid)
     movie.genre = req.params.genreid
     movie.save()
-    res.json()
+    res.json(movie)
 })
 
 // Home Page
@@ -55,15 +55,14 @@ router.get("/home", (req, res) => {
 // Genres Page
 router.get("/genres", async (req, res) => {
     const movies = await Movie.find({}).catch((error) => {errorHandler(error, res)})
-    const genres = await Genre.find({}).populate("movies").catch((error) => errorHandler(error, res))
+    const genres = await Genre.find({}).populate({path: "movie", model: "Movie"}).catch((error) => errorHandler(error, res))
     res.render("movie/genre.ejs", {movies, genres})
 })
 
 // Index Route 
 router.get("/", async (req, res) => {
-    const movies = await Movie.find({}).catch((error) => errorHandler(error, res))
-    const genres = await Genre.find({}).populate("movies").catch((error) => errorHandler(error, res))
-    res.render("movie/index.ejs", {movies, genres})
+    const movies = await Movie.find({}).populate({path: "movie", model: "Movie"}).catch((error) => errorHandler(error, res))
+    res.render("movie/index.ejs", {movies})
 })
 
 
