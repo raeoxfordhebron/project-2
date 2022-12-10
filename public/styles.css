@@ -36,7 +36,7 @@ body {
 .container-title {
     display: flex;
     justify-content: space-between;
-    width: 85%
+    width: 85%;
 }
 
 #name {
@@ -74,12 +74,12 @@ body {
     border: 1.5px solid black;
     padding: 2.5rem;
     width: 50%;
-    max-width: 1000px;
     margin: 0 auto;
 }
 
 .container-movie{
     margin-left: 5rem;
+    max-width: 1500px;
 }
 
 .container-movie h2 {
@@ -99,6 +99,10 @@ body {
 @media only screen and (max-width: 385px) {
     .header{
         display: block;
+    }
+
+    .liked{
+        margin: 0 auto;
     }
 }
 
