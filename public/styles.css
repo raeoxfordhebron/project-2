@@ -22,6 +22,18 @@ body {
     margin: 0 auto;
 }
 
+.manipulate {
+    display: flex;
+    justify-content: center;
+}
+
+.container-notes{
+    border: 1.5px solid black;
+    padding: 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 @media only screen and (max-width: 385px) {
     .header{
         display: block;
