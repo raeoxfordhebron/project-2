@@ -2,7 +2,9 @@
 // Import Dependencies
 ////////////////////////////////////////
 const express = require('express')
-const Movie = require("../models/movie")
+const {Movie, Genre} = require("../models/movie")
+const mongoose = require('mongoose')
+const toId = mongoose.Types.ObjectId
 
 /////////////////////////////////////////
 // Create Route
@@ -19,17 +21,30 @@ function errorHandler(error, res){
 /////////////////////////////////////////
 
 // Seed Router
-router.get("/seed", (req, res) => {
+router.get("/seed",  async (req, res) => {
     const startMovies = [
-        {title: "Titanic", notes: "I loved it!", genre: "Romance", isLiked: true},
-        {title: "Eternal Sunshine of the Spotless Mind", notes: "Deep!", genre: "Drama", isLiked: true},
-        {title: "Terrifier 2", notes: "too gory!", genre: "Horror", isLiked: false},
+        {title: "Titanic", notes: "I loved it!", isLiked: true},
+        {title: "Eternal Sunshine of the Spotless Mind", notes: "Deep!", isLiked: true},
+        {title: "Terrifier 2", notes: "too gory!", isLiked: false},
     ]
-    Movie.deleteMany({}, (error, data) => {
-        Movie.create(startMovies, (error, createdMovies) => {
-            res.json(createdMovies);
-        })
-    })
+
+    const startGenres = [
+        {name: "Romance"},
+        {name: "Drama"},
+        {name: "Horror"}
+    ]
+    const newMovies = await Movie.create(startMovies)
+    const newGenres = await Genre.create(startGenres)
+    res.json({newMovies, newGenres})
+})
+
+// Link Route
+router.get("/linkmovies/:genreid/:movieid", async (req, res) => {
+    req.params.genreid = toId(req.params.genreid)
+    const movie = await Movie.findById(req.params.movieid)
+    movie.genre = req.params.genreid
+    movie.save()
+    res.json()
 })
 
 // Home Page
@@ -40,14 +55,17 @@ router.get("/home", (req, res) => {
 // Genres Page
 router.get("/genres", async (req, res) => {
     const movies = await Movie.find({}).catch((error) => {errorHandler(error, res)})
-    res.render("movie/genre.ejs", {movies})
+    const genres = await Genre.find({}).populate("movies").catch((error) => errorHandler(error, res))
+    res.render("movie/genre.ejs", {movies, genres})
 })
 
 // Index Route 
 router.get("/", async (req, res) => {
     const movies = await Movie.find({}).catch((error) => errorHandler(error, res))
-    res.render("movie/index.ejs", {movies})
+    const genres = await Genre.find({}).populate("movies").catch((error) => errorHandler(error, res))
+    res.render("movie/index.ejs", {movies, genres})
 })
+
 
 // New Route 
 router.get("/new", (req, res) => {
@@ -74,7 +92,7 @@ router.put("/:id", (req, res) => {
 // Create Route
 router.post("/", (req, res) => {
     req.body.isLiked = req.body.isLiked === "on" ? true : false
-    Movie.create(req.body, (error, fruit) => {
+    Movie.create(req.body, (error, movie) => {
         res.redirect("/movie")
     })
 })

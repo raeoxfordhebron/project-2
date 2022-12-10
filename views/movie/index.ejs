@@ -18,9 +18,11 @@
                 <div>
                     <span><%= movie.notes %></span>
                 </div>
-                <div>
-                    <span><%= movie.genre %></span>
-                </div>
+                <% genres.forEach((genre, index) => { %>
+                    <div>
+                        <span><%= genre.name %></span>
+                    </div>
+                <% }) %>
                 <div>
                     <label for="isLiked">Liked</label>
                     <input type="checkbox" name="isLiked" <%= movie.isLiked ? "checked" : "" %>>
