@@ -2,9 +2,8 @@
 // Import Dependencies
 ////////////////////////////////////////
 const express = require('express')
-const {Movie, Genre} = require("../models/movie")
+const {Movie} = require("../models/movie")
 const mongoose = require('mongoose')
-const toId = mongoose.Types.ObjectId
 
 /////////////////////////////////////////
 // Create Route

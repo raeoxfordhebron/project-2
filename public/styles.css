@@ -4,8 +4,9 @@
 
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
+
 .hero {
     background-color: rgb(31, 141, 141);
     width: 98%;
@@ -20,7 +21,28 @@ body {
     max-width: 1100px;
     max-height: 100px;
     margin: 0 auto;
+    font-size: 1.25rem;
 }
+
+.header a {
+    color: white;
+    background-color: rgb(8, 98, 98);
+    padding: 1.5rem 2.5rem;
+}
+
+#name {
+    display: flex;
+    margin-left: 1em;
+}
+
+.name-emphasis {
+    font-size: 5rem;
+}
+
+#name h1 {
+    margin-top: 1rem;
+}
+
 
 .manipulate {
     display: flex;
@@ -30,6 +52,7 @@ body {
 .container-notes{
     border: 1.5px solid black;
     padding: 2.5rem;
+    width: 50%;
     max-width: 1000px;
     margin: 0 auto;
 }
