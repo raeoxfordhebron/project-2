@@ -3,10 +3,15 @@
 <%- include("../partials/head.ejs") %>
 <body>
     <%- include("../partials/header.ejs") %>
+    <div class="container-title">
+        <div id="name">
+            <h1 class="name-emphasis">B</h1><h1>uster</h1> <h1 class="name-emphasis">B</h1><h1>lock</h1>
+        </div>
     <main>
         <div>
             <form action ="/movie" method="post">
-                <legend>Add a New Movie</legend>
+                <div class="container-add">
+                <h1 class="add-title">Add a New Movie</h1>
                 <label>
                     Title: <input type="text" name="title">
                 </label>
@@ -20,6 +25,7 @@
                     Liked: <input type="checkbox" name="isLiked">
                 </label>
                 <input type="submit" value="Add New Movie">
+            </div>
             </form>
         </div>
     </main>

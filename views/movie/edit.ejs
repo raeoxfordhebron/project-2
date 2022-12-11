@@ -11,16 +11,16 @@
         <fieldset>
             <legend>Edit a Movie</legend>
             <label>
-                Title:<input type="text" name="title" value="<%= movie.title %>">
+                Title: <input type="text" name="title" value="<%= movie.title %>">
             </label>
             <label>
-                Notes:<input type="text" name="notes" value="<%= movie.notes %>">
+                Notes: <input type="text" name="notes" value="<%= movie.notes %>">
             </label>
             <label>
-                Genre:<input type="text" name="genre" value="<%= movie.genre %>">
+                Genre: <input type="text" name="genre" value="<%= movie.genre %>">
             </label>
             <label>
-                Liked:<input type="checkbox" name="isLiked" <%= movie.isLiked ? "checked" : "" %>>
+                Liked: <input type="checkbox" name="isLiked" <%= movie.isLiked ? "checked" : "" %>>
             </label>
         </fieldset>
         <input id="edit-update" type="submit" value="Update <%= movie.title %>">
