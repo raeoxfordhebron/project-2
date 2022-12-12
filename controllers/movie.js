@@ -45,7 +45,8 @@ router.get("/about", (req, res) => {
 
 // Index Route 
 router.get("/", async (req, res) => {
-    const movies = await Movie.find({username: req.session.username}).catch((error) => errorHandler(error, res))
+    const movies = await Movie.find().catch((error) => errorHandler(error, res))
+    console.log(movies)
     res.render("movie/index.ejs", {movies})
     })
 
