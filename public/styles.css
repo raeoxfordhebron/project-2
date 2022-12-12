@@ -187,3 +187,22 @@ fieldset legend {
 .container-add input {
     padding: .5rem;
 }
+
+/* Sign Up Page */
+
+.container-form {
+    margin: 1rem auto;
+    max-width: 1100px;
+}
+
+.container-form form {
+    text-align: center;
+}
+
+/* About Page */
+.about-section {
+    width: 50%;
+    max-width: 1100px;
+    display: flex;
+    margin: 0 auto;
+}
