@@ -123,11 +123,11 @@ img {
 
 @media only screen and (max-width: 385px) {
     .header{
-        display: block;
+        
     }
 
-    .header div {
-        margin: 1em;
+    .header a {
+        padding: 1em 1em;
     }
 
     .liked{

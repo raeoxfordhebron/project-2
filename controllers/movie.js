@@ -32,7 +32,7 @@ router.use((req, res, next) => {
 /////////////////////////////////////////
 
 // Home Page
-router.get("/home", async (req, res) => {
+router.get("/", async (req, res) => {
     const movies = await Movie.find({}).catch((error) => errorHandler(error, res))
     res.render("movie/home.ejs", {movies})
 })
