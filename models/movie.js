@@ -13,7 +13,8 @@ const movieSchema = new Schema ({
     title: String,
     notes: String,
     isLiked: Boolean,
-    genre: String
+    genre: String,
+    username: String
 }, {timestamps: true})
 
 

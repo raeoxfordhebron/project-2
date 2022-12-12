@@ -2,7 +2,7 @@
 // Import Dependencies
 ////////////////////////////////////////
 const express = require('express')
-const {Movie} = require("../models/movie")
+const Movie = require("../models/movie")
 const mongoose = require('mongoose')
 
 /////////////////////////////////////////
@@ -15,22 +15,21 @@ function errorHandler(error, res){
     res.json(error)
 }
 
+////////////////////////////////////////
+// Router Middleware
+////////////////////////////////////////
+// Authorization Middleware
+router.use((req, res, next) => {
+    if(req.session.loggedIn) {
+        next();
+    } else {
+        res.redirect("/user/login")
+    }
+})
+
 /////////////////////////////////////////
 // Routes
 /////////////////////////////////////////
-
-// Seed Router
-router.get("/seed",  async (req, res) => {
-    const startMovies = [
-        {title: "Titanic", notes: "I loved it!", genre: "Romance", isLiked: true},
-        {title: "Eternal Sunshine of the Spotless Mind", notes: "Deep!", genre: "Drama", isLiked: true},
-        {title: "Terrifier 2", notes: "too gory!", isLiked: false, genre: "Horror"},
-    ]
-    Movie.deleteMany({}, (error, data) => {})
-    const newMovies = await Movie.create(startMovies)
-    res.json({newMovies})
-})
-
 
 // Home Page
 router.get("/home", async (req, res) => {
@@ -46,9 +45,10 @@ router.get("/about", (req, res) => {
 
 // Index Route 
 router.get("/", async (req, res) => {
-    const movies = await Movie.find({}).catch((error) => errorHandler(error, res))
+    const movies = await Movie.find({username: req.session.username}).catch((error) => errorHandler(error, res))
     res.render("movie/index.ejs", {movies})
-})
+    })
+
 
 
 // New Route 
@@ -76,6 +76,7 @@ router.put("/:id", (req, res) => {
 // Create Route
 router.post("/", (req, res) => {
     req.body.isLiked = req.body.isLiked === "on" ? true : false
+    req.body.username = req.session.username
     Movie.create(req.body, (error, movie) => {
         res.redirect("/movie")
     })
