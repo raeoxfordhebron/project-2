@@ -50,6 +50,7 @@ img {
     color: white;
     justify-content: flex-end;
     text-decoration: none;
+    margin-top: .25rem
 }
 
 .container-title {
@@ -108,7 +109,7 @@ img {
 
 
 .container-movie h2 {
-    margin-left: 10rem;
+    margin-left: 5rem;
     color: black;
 }
 
@@ -121,7 +122,7 @@ img {
     margin-left: 18rem;
 }
 
-@media only screen and (max-width: 412px) {
+@media only screen and (max-width: 414px) {
     .header{
         
     }
@@ -133,6 +134,19 @@ img {
 
     .liked{
         margin: 0 auto;
+    }
+
+    .container-movie {
+        margin-left: 0em;
+    }
+
+    .container-movie h2{
+        font-size: 1rem;
+        margin-left: 0rem;
+    }
+
+    .button button {
+        padding: 1rem;
     }
 }
 
