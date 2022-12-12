@@ -41,8 +41,6 @@ app.use("/user", UserRouter)
 //     res.send("Server is working")
 // })
 
-app.use("/movie", MovieRouter)
-
 
 //////////////////////////////////////////////
 // Server Listener

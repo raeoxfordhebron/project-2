@@ -121,13 +121,14 @@ img {
     margin-left: 18rem;
 }
 
-@media only screen and (max-width: 385px) {
+@media only screen and (max-width: 412px) {
     .header{
         
     }
 
     .header a {
-        padding: 1em 1em;
+        padding: 1em;
+        margin: .5em;
     }
 
     .liked{
