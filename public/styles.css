@@ -103,7 +103,7 @@ img {
 
 
 .container-movie{
-    margin-left: 6rem;
+    margin-left: 5rem;
     max-width: 1300px;
 }
 
@@ -220,4 +220,8 @@ fieldset legend {
     max-width: 1100px;
     display: flex;
     margin: 0 auto;
+}
+
+.about-section p {
+    font-size: 1.5rem;
 }
