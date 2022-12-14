@@ -119,7 +119,7 @@ img {
 
 .liked {
     margin-top: 1rem;
-    margin-left: 18rem;
+    margin-left: 20rem;
 }
 
 @media only screen and (max-width: 414px) {
@@ -224,4 +224,33 @@ fieldset legend {
 
 .about-section p {
     font-size: 1.5rem;
+    text-align: justify;
+}
+
+/* Show Page */
+
+.show-title {
+    display: flex;
+    justify-content: center;
+}
+
+.notes {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.genre {
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+
+.liked-show {
+    text-align: center;
+}
+
+.manage {
+    display: flex;
+    justify-content: flex-end;
 }

@@ -4,23 +4,29 @@
 <body>
     <%- include("../partials/header.ejs") %>
     <main>
+        <div class="manage">
         <a href="/movie"><button>Manage All</button></a>
+        </div>
+        <div class="show-title">
         <h1><%= movie.title %></h1>
+        </div>
+        <div class="genre">
+            <span><%= movie.genre %></span>
+        </div>
         <div>
+            <div class="notes">
             <label>Notes</label>
             <span class="container-notes"><%= movie.notes %></span>
         </div>
-        <div>
-            <span><%= movie.genre %></span>
         </div>
+        <div class="liked-show">
         <span>
             <label for="isLiked">Liked</label>
                     <input type="checkbox" name="isLiked" <%= movie.isLiked ? "checked" : "" %>>
         </span>
-        <div>
-            <a href="/movie/<%= movie._id %>/edit"><button>Edit</button></a>
         </div>
-        <div>
+        <div class="manipulate">
+            <a href="/movie/<%= movie._id %>/edit"><button>Edit</button></a>
             <form action="/movie/<%= movie._id %>?_method=DELETE" method="POST">
                 <input type="submit" value="Delete">
             </form>
